@@ -1,11 +1,10 @@
-<router-outlet />
-<div class="chat-container">
-  <header class="chat-header">
+<div class="chat-container" [class.hidden]="!isOpen">
+  <header class="chat-header" (click)="toggleChat()">
     <h1>Chat Application</h1>
   </header>
   <main class="chat-messages">
-    <div *ngFor="let msg of messages" [class]="msg.user === 'You' ? 'message user' : 'message bot'">
-      <strong>{{ msg.user }}:</strong> {{ msg.text }}
+    <div *ngFor="let msg of messages" [class]="!msg.isChatbotAnswer  ? 'message user' : 'message bot'">
+      <strong>{{ msg.isChatbotAnswer ? 'Chatbot':'Your' }}:</strong> {{ msg.text }}
     </div>
   </main>
   <footer class="chat-input">
@@ -13,3 +12,4 @@
     <button (click)="sendMessage()">Send</button>
   </footer>
 </div>
+<button class="chat-toggle" (click)="toggleChat()" *ngIf="!isOpen">Chat</button>
