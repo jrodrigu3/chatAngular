@@ -21,7 +21,6 @@ export class AppComponent implements OnInit {
   title = 'chatAngular';
   message = '';
   messages: { recipient_id: string, text: string, isChatbotAnswer: boolean }[] = [];
-  isChatOpen = false;
   isOpen = false;
 
   constructor(private chatService: ChatService) { }
@@ -33,7 +32,7 @@ export class AppComponent implements OnInit {
   }
 
   toggleChat() {
-    this.isChatOpen = !this.isChatOpen;
+    this.isOpen = !this.isOpen;
   }
   sendMessage() {
     if (this.message.trim()) {

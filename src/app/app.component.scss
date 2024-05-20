@@ -1,5 +1,5 @@
 /* Add these styles to your CSS file */
-.chat-wrapper {
+/* .chat-wrapper {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -19,12 +19,16 @@
   padding: 10px;
   text-align: center;
   cursor: pointer;
-}
+} */
 
 .chat-container {
+
   display: flex;
+  position: fixed;
+  bottom: 0;
+  right: 0;
   flex-direction: column;
-  height: 400px;
+  //height: 400px;
   max-width: 400px;
   margin: 0 auto;
   border: 1px solid #ddd;
@@ -37,7 +41,12 @@
   background-color: #007bff;
   color: white;
   padding: 10px;
+  cursor: pointer;
   text-align: center;
+}
+
+.withHeight {
+  height: 400px;
 }
 
 .chat-messages {

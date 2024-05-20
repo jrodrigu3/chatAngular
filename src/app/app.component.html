@@ -1,15 +1,15 @@
-<div class="chat-container" [class.hidden]="!isOpen">
+<div class="chat-container" [class]="isOpen  ? 'withHeight' : ''" [class.hidden]="!isOpen">
   <header class="chat-header" (click)="toggleChat()">
     <h1>Chat Application</h1>
   </header>
-  <main class="chat-messages">
+  <main *ngIf="isOpen" class="chat-messages">
     <div *ngFor="let msg of messages" [class]="!msg.isChatbotAnswer  ? 'message user' : 'message bot'">
       <strong>{{ msg.isChatbotAnswer ? 'Chatbot':'Your' }}:</strong> {{ msg.text }}
     </div>
   </main>
-  <footer class="chat-input">
+  <footer *ngIf="isOpen" class="chat-input">
     <input [(ngModel)]="message" (keyup.enter)="sendMessage()" placeholder="Type a message" />
     <button (click)="sendMessage()">Send</button>
   </footer>
 </div>
-<button class="chat-toggle" (click)="toggleChat()" *ngIf="!isOpen">Chat</button>
+<button class="chat-toggle" (click)="toggleChat()" *ngIf="isOpen">Chat</button>
